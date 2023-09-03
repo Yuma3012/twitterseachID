@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>足し算</title>
+</head>
+<script src = sum.js></script>
+<body>
+    <h1>数字の足し算</h1>
+    
+    <!-- ユーザーに数字を入力させるフォーム -->
+    <label for="num1">数字1:</label>
+    <input type="number" id="num1" placeholder="数字を入力してください"><br>
+
+    <label for="num2">数字2:</label>
+    <input type="number" id="num2" placeholder="数字を入力してください"><br>
+
+    <!-- 計算ボタンをクリックしたら足し算を行う関数を呼び出す -->
+    <button onclick="calculateSum()">計算</button>
+
+    <!-- 結果を表示する場所 -->
+    <p>結果: <span id="result"></span></p>
+
+</body>
+</html>
