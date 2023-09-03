@@ -9,20 +9,21 @@
     <h1>表示したいユーザーのtwitterIDを入力してください</h1>
     
     <!-- ユーザーに数字を入力させるフォーム -->
-    <label for="text">テキスト:</label>
-    <input type="text" id="text" placeholder="テキストを入力してください"><br>
-
-    <label for="id">ID:</label>
-    <input type="text" id="id" placeholder="twitterIDを入力してください"><br>
-
+    <div class="search-container">
+      <label for="text">テキスト:</label>
+      <input type="text" id="text" placeholder="テキストを入力してください"><br>
+      <button onclick="displayText()">表示</button> 
+    </div>
      <!-- ボタンを押すとテキストが表示される -->
-     <button onclick="displayText()">表示</button>
-     
-     <button onclick="displayTL()">タイムラインを表示</button>
+    <div class="search-container">
+      <label for="id">ID:&nbsp;</label>
+      <input type="text" id="id" placeholder="twitterIDを入力してください"><br> 
+      <button onclick="displayTweet()">検索</button>
+    </div>
      <!-- テキストを表示する場所 -->
      <p id="hidetext" style="display: none;">入力された文字は「<span id="displayText"></span>」です</p>
 
-     <!-- <p id="hidelink" style="display: none;">結果: <a id="resultLink" href=""></a></p> -->
+     <p id="hidelink" style="display: none;">結果: <a id="resultLink" href=""></a></p>
      
      
     <!-- <iframe src="https://yonoi.com/twitter-search-command/#index_id40" target="_blank rel="noreferrer noopener"></iframe>
@@ -32,21 +33,11 @@
        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div> -->
  
-    <!-- <div id="hidelink" style="display: none;">--><a 
-  class="twitter-timeline"
-  id="resultLink" href="https://twitter.com"
-  data-width="300"
-  data-height="300"
-  data-chrome="noheader nofooter"
-  data-border-color="#ff6347"
-  data-theme="light"
-  ></a
-><!-- </div> -->
-<script
-  async
-  src="https://platform.twitter.com/widgets.js"
-  charset="utf-8"
-></script>
+    <!-- <div id="hidelink" style="display: none;">--> 
+      <!-- タイムラインを表示する場所 -->
+    <div id="twitter-timeline"></div>
+  
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </body>
 </html>

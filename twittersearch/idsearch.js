@@ -65,20 +65,14 @@ function displayTL2(){
 
 }
 
-function displayTL3() {
-    var inputID = document.getElementById("id").value;
-    var resultLink = document.getElementById("resultLink");
-
-    // inputIDの値をリンクに追加
-    resultLink.setAttribute("href", resultLink.getAttribute("href") + "/" + inputID + "/");
-}
-
 function displayTL() {
     // テキスト入力フォームからTwitterのIDを取得
     var inputID = document.getElementById("id").value;
 
     // ベースとなるURLを設定
     var baseURL = "https://twitter.com/";
+
+    
 
     // タイムラインを表示するための<a>要素を取得
     var timelineContainer = document.getElementById("twitter-timeline");
@@ -89,4 +83,9 @@ function displayTL() {
 
     // タイムラインを読み込む
     twttr.widgets.load();
+}
+
+function displayTweet() {
+    displayURL();
+    displayTL();
 }
