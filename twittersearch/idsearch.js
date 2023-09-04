@@ -24,41 +24,19 @@ function displayText() {
 function displayURL(){
     // テキスト入力フォームからテキストを取得
     var inputID = document.getElementById("id").value;
-
+    var inputRetweets = document.getElementById("retweets").value;
     // ベースとなるURL（ここでは例としてGoogleを使用）
-    var baseURL = "https://twitter.com/";
+    var baseURL = "https://twitter.com/";https://twitter.com/search?q=from%3A%40hikakin%20filter%3Amedia%20min_retweets%3A40000&src=typed_query&f=top
+    
+    
     // テキストをURLに追加
-    var finalURL = baseURL + inputID;
+    var finalURL = baseURL + "search?q=from%3A%40"+ inputID +"%20filter%3Amedia%20min_retweets%3A" +inputRetweets +"&src=typed_query&f=top";
 
     // 結果を表示する<a>要素のhref属性に設定
     var resultLink = document.getElementById("resultLink");
     resultLink.href = finalURL;
     resultLink.textContent = finalURL;
 
-    var displayParagraph = document.getElementById("hidelink");
-            displayParagraph.style.display = "block";
-
-
-}
-
-function displayTL2(){
-    // テキスト入力フォームからテキストを取得
-    var inputID = document.getElementById("id").value;
-
-    // ベースとなるURL（ここでは例としてGoogleを使用）
-    var baseURL = "https://twitter.com/";
-    // テキストをURLに追加
-    var url = baseURL + inputID;
-
-    // // 結果を表示する<a>要素のhref属性に設定
-    // var resultLink = document.getElementById("resultLink");
-    // resultLink.href = finalURL;
-    // resultLink.textContent = finalURL;
-    // <a>要素を取得
-    var linkElement = document.getElementById("resultLink");
-
-    // <a>要素のhref属性を変更
-    linkElement.href = url;
     var displayParagraph = document.getElementById("hidelink");
             displayParagraph.style.display = "block";
 
@@ -77,8 +55,8 @@ function displayTL() {
     // タイムラインを表示するための<a>要素を取得
     var timelineContainer = document.getElementById("twitter-timeline");
 
-    // <a>要素にタイムラインの設定を追加
-    timelineContainer.innerHTML = '<a class="twitter-timeline" data-width="300" data-height="500" href="' + baseURL + inputID + '">Tweets by ' + inputID + '</a>';
+    // <a>要素にタイムラインの設定を追加.innerHTML=timelinecontainerの要素をボタンを押したら変更
+    timelineContainer.innerHTML = '<a class="twitter-timeline" data-width="300" data-height="500" href="' + baseURL + inputID + '" data-chrome="noheader nofooter" data-border-color="#ff6347" data-theme="light">Tweets by ' + inputID + '</a>';
     // data-chrome="noheader nofooter" data-border-color="#ff6347"data-theme="light" '</a>
 
     // タイムラインを読み込む
@@ -89,3 +67,4 @@ function displayTweet() {
     displayURL();
     displayTL();
 }
+
