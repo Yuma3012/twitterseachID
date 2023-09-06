@@ -31,8 +31,13 @@ function displayURL(){
     
     // チェックボックス要素を取得
     var checkbox = document.getElementById("checkbox");
-
     
+    // リツイートの指定がない場合はブランク
+    if (inputRetweets){
+        var RetweetsURL = "%20min_retweets%3A" + inputRetweets
+    } else {
+        var RetweetsURL = ""
+    }
        // チェックボックスの状態に応じて media 変数を設定
     if (checkbox.checked) {
         var media = "filter%3Amedia";
@@ -40,7 +45,7 @@ function displayURL(){
         var media = "";
     }
     // テキストをURLに追加
-    var finalURL = baseURL + "search?q=from%3A%40"+ inputID +"%20" + media +"%20min_retweets%3A" +inputRetweets +"&src=typed_query&f=top";
+    var finalURL = baseURL + "search?q=from%3A%40"+ inputID +"%20" + media + RetweetsURL +"&src=typed_query&f=top";
 
     // 結果を表示する<a>要素のhref属性に設定
     var resultLink = document.getElementById("resultLink");
@@ -51,8 +56,8 @@ function displayURL(){
 
 // 画像のsrc属性に画像のURLを設定
     image.src = 'img/twitter.png';
-    image.width ='120';
-    image.height = '100';
+    image.width ='50';
+    image.height = '50';
 
 // img要素をa要素に追加
     resultLink.appendChild(image);
