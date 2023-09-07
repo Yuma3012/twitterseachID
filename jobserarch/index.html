@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>短期バイト検索チェッカー</title>
+</head>
+<link rel="stylesheet" media="all" href="style.css" />
+ 
+<body>
+    <script src = jobsearch.js></script>
+    <h1>お住いの地域を入力してください</h1>
+    
+    <!-- ボタンを押すとテキストが表示される -->
+    <div class="search-container">
+      <label for="prefecture">都道府県:&nbsp;</label>
+      <input type="text" id="prefecture" placeholder="都道府県を入力"><br>
+      <label for="city">市区町村:&nbsp;</label>
+      <input type="text" id="city" placeholder="市区町村を入力"><br>
+      <label for="checkbox">短期のみ</label>
+      <input type="checkbox" id="checkbox">
+    </div> 
+      <button onclick="displayJob()">検索</button>
+    
+      <p id="hidelink" style="display: none;">結果:<a id="resultLink" href=""></a></p> 
+
+
+</body>
+</html>

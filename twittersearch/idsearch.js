@@ -27,11 +27,17 @@ function displayURL(){
     var inputID = document.getElementById("id").value;
     var inputRetweets = document.getElementById("retweets").value;
     // ベースとなるURL（ここでは例としてGoogleを使用）
-    var baseURL = "https://twitter.com/";https://twitter.com/search?q=from%3A%40hikakin%20filter%3Amedia%20min_retweets%3A40000&src=typed_query&f=top
+    var baseURL = "https://twitter.com";https://twitter.com/search?q=from%3A%40hikakin%20filter%3Amedia%20min_retweets%3A40000&src=typed_query&f=top
     
     // チェックボックス要素を取得
     var checkbox = document.getElementById("checkbox");
-    
+
+    // IDの指定がない場合はブランク
+    if (inputID){
+        var IDURL = "from%3A%40" + inputID
+    } else {
+        var IDURL = ""
+    }
     // リツイートの指定がない場合はブランク
     if (inputRetweets){
         var RetweetsURL = "%20min_retweets%3A" + inputRetweets
@@ -40,12 +46,12 @@ function displayURL(){
     }
        // チェックボックスの状態に応じて media 変数を設定
     if (checkbox.checked) {
-        var media = "filter%3Amedia";
+        var media = "%20filter%3Amedia";
     } else {
         var media = "";
     }
     // テキストをURLに追加
-    var finalURL = baseURL + "search?q=from%3A%40"+ inputID +"%20" + media + RetweetsURL +"&src=typed_query&f=top";
+    var finalURL = baseURL + "/search?q="+ IDURL + media + RetweetsURL +"&src=typed_query&f=top";
 
     // 結果を表示する<a>要素のhref属性に設定
     var resultLink = document.getElementById("resultLink");

@@ -1,0 +1,15 @@
+.search-container {
+    display: flex;
+    align-items: center; /* 垂直方向の中央揃え */
+  }
+  
+  /* ボタンの間に少し間隔を空けるためのスタイル */
+  button {
+    margin-left: 10px;
+  }
+  
+  .twitter-timeline {
+      max-width: 40%;
+      border: 1px solid #333;
+      padding: 10px;
+    }
