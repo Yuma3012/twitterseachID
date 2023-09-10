@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prefecture and city selection</title>
+  </head>
+  <body>
+    <div class="">
+      <select name="select_prefecture" id="select_prefecture" class="">
+        <option value="">都道府県を選択</option>
+      </select>
+      <select name="select_city" id="select_city" class="">
+        <option value="">市区町村を選択</option>
+      </select>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./prefectureCity.js"></script>
+    <script>
+      $(function() {
+        let initPrefVal = '東京都'; // selectedを付与したい都道府県
+        let initCityVal = '渋谷区'; // selectedを付与したい市区町村
+        let valType = 'name';  // 'name' or 'code'
+
+        // 都道府県リストを作成
+        getPrefectureSelection('#select_prefecture', '#select_city', '/getJsonData', valType, initPrefVal, initCityVal);
+
+        // 都道府県選択時に市区町村リストを作成
+        $('#select_prefecture').on('change', function() {
+          getCitySelection('#select_prefecture', '#select_city', '/getJsonData', valType);
+        });
+      });
+    </script>
+  </body>
+</html>
+
